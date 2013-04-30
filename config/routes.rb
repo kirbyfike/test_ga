@@ -1,5 +1,6 @@
 TestGa::Application.routes.draw do
   
+  resources :organizations
   match '/signup',  to: 'organizations#new',            via: 'get'
 
   #get "pages/home"

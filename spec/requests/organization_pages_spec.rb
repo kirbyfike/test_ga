@@ -2,12 +2,12 @@ require 'spec_helper'
 
 describe "Organization pages" do
 
-  subject { page }
-
-  describe "signup page" do
-    before { visit signup_path }
-
-    it { should have_content('Sign up') }
-    it { should have_title('Sign up') }
+  it "signs up an org after filling out page" do
+  	organization = FactoryGirl.build(:organization)
+  	visit signup_path
+  	fill_in "organization_first_name", :with => organization.first_name
+  	fill_in "organization_last_name", :with => organization.last_name
+  	fill_in "organization_email", :with => organization.email
+  	click_button "Create"
   end
 end
