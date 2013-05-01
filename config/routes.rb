@@ -3,9 +3,9 @@ TestGa::Application.routes.draw do
   get "sessions/new"
 
   resources :users
-
-
   resources :organizations
+  
+  
   match 'signup',  to: 'organizations#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'

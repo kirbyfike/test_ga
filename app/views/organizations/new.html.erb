@@ -4,15 +4,15 @@
   <div class="span6 offset3">
     <%= form_for(@organization) do |f| %>
 
-      	<%= f.label :first_name %>
-		<%= f.text_field :first_name %>
+    <%= f.label :name %>
+		<%= f.text_field :name %>
 
-		<%= f.label :last_name %>
-		<%= f.text_field :last_name %>
-
-		<%= f.label :email %>
-		<%= f.text_field :email %>
+		<%= f.label :directory_name %>
+		<%= f.text_field :directory_name %>
 		
+		<%= f.fields_for :user do |builder| %>
+    		<%= render 'user_fields', f: builder %>
+  		<% end %>
 		<%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
     <% end %>
   </div>
