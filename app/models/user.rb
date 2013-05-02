@@ -4,4 +4,5 @@ class User < ActiveRecord::Base
   attr_accessible :organizations_attributes, :first_name, :last_name, :email, :password, :password_confirmation
   
   belongs_to :organization
+ 
 end

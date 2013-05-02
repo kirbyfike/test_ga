@@ -4,6 +4,17 @@
   <div class="span6 offset3">
     <%= form_for(@organization) do |f| %>
 
+      <% if @organization.errors.any? %>
+        <div class="error_messages">
+          <h2>Form is invalid</h2>
+          <ul>
+            <% @organization.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
     <%= f.label :name %>
 		<%= f.text_field :name %>
 

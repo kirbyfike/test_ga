@@ -43,7 +43,7 @@ test:
   encoding: unicode
   database: test_ga_test
   pool: 5
-  username: test_ga
+  username: kirbyfike
   password:
 
 production:

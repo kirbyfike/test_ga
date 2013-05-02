@@ -1,9 +1,17 @@
+require 'subdomain.rb'
+
 TestGa::Application.routes.draw do
   
+  constraints(Subdomain) do
+    match '/login' => 'sessions#new'
+  end
+
   get "sessions/new"
 
   resources :users
   resources :organizations
+
+  
   
   
   match 'signup',  to: 'organizations#new', as: 'signup'
