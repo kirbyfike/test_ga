@@ -1,20 +1,24 @@
 class OrganizationsController < ApplicationController
   
-  def create
-  	
-  	@organization = Organization.new(params[:organization])
-    
-    @organization.build_course
-	
-    if @organization.save
-    	session[:user_id] = @organization.id
-    	redirect_to root_url, notice: "Thank you for signing up!"
-    else
-    	render "new"
-    end
+  def new
+    @organization = Organization.new
+    @organization.users.build
   end
   
-  def new
-  	@organization = Organization.new
+  def create
+  	
+    @organization = Organization.create_from_signup(params[:organization])
+    
+    #@user = @organization.users.create(params[:organization][:user])
+    
+    if @organization.save
+      
+    	session[:user_id] = @user.id
+    	redirect_to root_url, notice: "Thank you for signing up!"
+      
+    else
+    	render "/signup"
+    end
+  
   end
 end
