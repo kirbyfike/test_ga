@@ -4,10 +4,6 @@
   <div class="span6 offset3">
     <%= form_for(@user) do |f| %>
     	
-    	<%= f.fields_for :organization do |builder| %>
-    		<%= render 'organization_fields', f: builder %>
-  		<% end %>
-  		
     	<%= f.label :first_name %>
 		<%= f.text_field :first_name %>
 		

@@ -4,6 +4,7 @@ TestGa::Application.routes.draw do
   
   constraints(Subdomain) do
     match '/login' => 'sessions#new'
+    match '/join' => 'users#new'
   end
 
   get "sessions/new"
